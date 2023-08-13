@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>option_select</title>
+</head>
+<body>
+    <h1 style="font-size: 50px;" id="hello">Hello!</h1>
+    <select style="width: 150px">
+        <option value="black">Black</option>
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+    </select>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('select').onchange = function() {
+                document.querySelector('#hello').style.color = this.value;
+            }
+        })
+    </script>
+
+    
+</body>
+</html>

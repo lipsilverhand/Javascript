@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional</title>
+</head>
+<body>
+    <h1>Good Morning!</h1>
+    <button>Click</button>
+    
+    <script>
+        function click() {
+            const heading = document.querySelector('h1');
+
+            if (heading.innerHTML=="Good Morning!") {
+                heading.innerHTML="Good Evening!";
+            } else {
+                heading.innerHTML="Good Morning!";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('button').onclick = click;
+        })
+    </script>
+</body>
+</html> 

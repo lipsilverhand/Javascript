@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit</title>
+</head>
+<body>
+    <div style="align-items: center; justify-content: center; height: 100vh;">
+        <h1 id="hello">Hello!</h1>
+        <button style="width: 80px; height: 50px;" id="green">green</button>
+        <button style="width: 80px; height: 50px;" id="blue">blue</button>
+        <button style="width: 80px; height: 50px;" id="red">red</button>
+        <button style="width: 80px; height: 50px;" id="purple">purple</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('#green').onclick = function() {
+                document.querySelector('#hello').style.color = "green";
+            }
+            document.querySelector('#blue').onclick = function() {
+                document.querySelector('#hello').style.color = "blue";
+            }
+            document.querySelector('#red').onclick = function() {
+                document.querySelector('#hello').style.color = "red";
+            }
+            document.querySelector('#purple').onclick = function() {
+                document.querySelector('#hello').style.color = "purple";
+            }
+        })
+        
+    </script>
+</body>
+</html>

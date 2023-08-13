@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <h1 style="font-size: 60px;">Tasks</h1>
+
+    <ul id="list">
+    </ul>
+
+    <form>
+        <input id="task" style="height: 40px;" type="text" placeholder="New Task">
+        <input id="sub" style="height: 45px;" type="submit">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('#sub').disabled = true;
+
+            document.querySelector('form').onkeyup = () => {
+                if (document.querySelector('#task').value.length > 0) {
+                    document.querySelector('#sub').disabled = false;
+                } else {
+                    document.querySelector('#sub').disabled = true;
+                }
+            }
+
+            document.querySelector('form').onsubmit = () =>{
+
+                //Get the value from input #task
+                const task = document.querySelector('#task').value;
+
+                //Create new element li
+                const li = document.createElement('li');
+                li.innerHTML = task;
+                document.querySelector('#list').append(li);
+
+                // clear input
+                document.querySelector('#task').value = '';
+
+                document.querySelector('#sub').disabled = true;
+                
+                return false;
+            }
+        })
+
+    </script>
+</body>
+</html>

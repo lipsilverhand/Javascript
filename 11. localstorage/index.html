@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Counter</title>
+</head>
+<body>
+    <h1>0</h1>
+    <button>Count</button>
+
+    <script>
+        //find "counter" in localstorage,if can't find, make a new "key" with "value"
+        if (!localStorage.getItem('counter')) {
+            localStorage.setItem('counter', 0);
+        }
+        
+        function count() {
+            let counter = +localStorage.getItem('counter');
+            counter += 1;
+            document.querySelector('h1').innerHTML = counter;
+            localStorage.setItem('counter', counter);
+
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('button').onclick = count;
+            document.querySelector('h1').innerHTML = +localStorage.getItem('counter')
+    
+        })
+  
+    </script>
+</body>
+</html>
