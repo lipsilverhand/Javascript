@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Currency</title>
+</head>
+<body>
+    <div id="exchangeRates"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('form').onsubmit = function() {
+                var myHeaders = new Headers();
+                myHeaders.append("apikey", "r0uYsyuNub87lbQCQSa9DA23SVYQ4n7W");
+
+                var requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow',
+                    headers: myHeaders
+                };
+
+                fetch("https://api.apilayer.com/currency_data/change?start_date=2023-08-14&end_date=2023-08-14", requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    const currency = document.querySelector('#currency').value;
+                    const rate = data.quotes[currency].start_rate;
+                    if (rate !== undefined) {
+                        document.querySelector('#result').innerHTML = `1 USD = ${rate} ${currency.slice(3)}`;
+
+                    } else {
+                        document.querySelector('#result').innerHTML = "Invalid currency.";
+                    }
+                }) 
+                return false;  
+            }
+            
+        });
+    </script>
+
+    <form>
+        <input id="currency" type="text" placeholder="Currency">
+        <input type="submit" value="Convert">
+    </form>
+    <div id="result">
+
+    </div>
+</body>
+</html>
